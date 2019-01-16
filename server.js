@@ -1,25 +1,13 @@
 const express = require ('express');
 const app = express();
-const Dog = require('./dogModels');
 const methodOverride = require('method-override');
+
+const dogController = require('./controllers/dogCont');
+
 app.use(methodOverride('_method'));
+app.use('/dog', dogController);
 
-// index route
-app.get('/dog', (req, res) => {
-    // res.send(Dog);
-    res.render('index.ejs', {
-        dogArray: Dog
-    });
-});
 
-// delete route
-app.delete('/dog/:id', (req, res) => {
-   
-    Dog.splice(req.params.id, 1);
-    console.log(Dog);
-    res.redirect('/dog');
-
-});
 
 
 
