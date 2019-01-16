@@ -13,6 +13,11 @@ router.get('/', (req, res) => {
     });
 });
 
+// delete route
+router.delete('/:id', (req, res) => {
+    Dogs.splice(req.params.id, 1);
+    res.redirect('/dog');
+});
 
 router.put('/:id', (req, res) => {
     if(req.body.eatMeet === 'on') {
@@ -24,16 +29,17 @@ router.put('/:id', (req, res) => {
     res.redirect('/dog');
 });
 
-
-// delete route
-router.delete('/:id', (req, res) => {
-    Dogs.splice(req.params.id, 1);
-    res.redirect('/dog');
+// show route
+router.get('/:id', (req, res) => {
+    res.render('show.ejs' , {
+        singleDog: Dogs[req.params.id],
+        id: req.params.id                                                                
+    });
+   
 });
 
 
-
-// edit
+// edit route
 router.get('/:id/edit', (req, res) => {
     res.render('edit.ejs', {
         singleDog:Dogs[req.params.id],

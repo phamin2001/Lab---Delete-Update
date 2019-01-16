@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <ul>
             <% for(let i = 0; i < dogArray.length; i++) { %>
-                <li><%= JSON.stringify(dogArray[i].name)%></li>
+                <li>The <a href="http://localhost:3000/dog/<%=i%>"><%= JSON.stringify(dogArray[i].name)%></a> is <%= JSON.stringify(dogArray[i].age)%> years old.</li>
+              
                 <form action="/dog/<%=i%>?_method=DELETE"  method="POST">
-                 
                     <div><button type="submit">Delete</button></div>
-                
-                 </form>
-
-                 <div><a href="http://localhost:3000/dog/<%=i%>/edit"><button>Edit</button></a></div>
+                </form>
+              
+                <div><a href="http://localhost:3000/dog/<%=i%>/edit"><button>Edit</button></a></div><br>
                
             <% } %>
-
-        
-
         </ul>
-
-        
-       
     </body>
 </html>
