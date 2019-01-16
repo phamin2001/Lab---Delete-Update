@@ -13,13 +13,32 @@ router.get('/', (req, res) => {
     });
 });
 
-// delete route
-router.delete('/:id', (req, res) => {
-    Dogs.splice(req.params.id, 1);
-    console.log(Dogs);
+
+router.put('/:id', (req, res) => {
+    if(req.body.eatMeet === 'on') {
+        req.body.eatMeet = true;
+    } else {
+        req.body.eatMeet = false;
+    }
+    Dogs[req.params.id] = req.body;
     res.redirect('/dog');
 });
 
 
+// delete route
+router.delete('/:id', (req, res) => {
+    Dogs.splice(req.params.id, 1);
+    res.redirect('/dog');
+});
+
+
+
+// edit
+router.get('/:id/edit', (req, res) => {
+    res.render('edit.ejs', {
+        singleDog:Dogs[req.params.id],
+        id: req.params.id
+    });
+});
 
 module.exports = router;

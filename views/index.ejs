@@ -10,10 +10,11 @@
                 <li><%= JSON.stringify(dogArray[i].name)%></li>
                 <form action="/dog/<%=i%>?_method=DELETE"  method="POST">
                  
-                    <button type="submit">Delete</button>
-                   
-                    
+                    <div><button type="submit">Delete</button></div>
+                
                  </form>
+
+                 <div><a href="http://localhost:3000/dog/<%=i%>/edit"><button>Edit</button></a></div>
                
             <% } %>
 
