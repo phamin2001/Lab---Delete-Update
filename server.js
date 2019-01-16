@@ -1,8 +1,14 @@
 const express = require ('express');
 const app = express();
-const Dog = require('./dogModel');
+const Dog = require('./dogModels');
 
-//
+// index route
+app.get('/dog', (req, res) => {
+    // res.send(Dog);
+    res.render('index.ejs', {
+        dogArray: Dog
+    });
+});
 
 
 

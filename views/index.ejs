@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <ul>
+            <% for(let i = 0; i < dogArray.length; i++) { %>
+                <li><%= JSON.stringify(dogArray[i])%></li>
+
+            <% } %>
+        </ul>
+    </body>
+</html>
