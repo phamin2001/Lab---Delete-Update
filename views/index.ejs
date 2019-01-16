@@ -7,9 +7,21 @@
     <body>
         <ul>
             <% for(let i = 0; i < dogArray.length; i++) { %>
-                <li><%= JSON.stringify(dogArray[i])%></li>
-
+                <li><%= JSON.stringify(dogArray[i].name)%></li>
+                <form action="/dog/<%=i%>?_method=DELETE"  method="POST">
+                 
+                    <button type="submit">Delete</button>
+                   
+                    
+                 </form>
+               
             <% } %>
+
+        
+
         </ul>
+
+        
+       
     </body>
 </html>
